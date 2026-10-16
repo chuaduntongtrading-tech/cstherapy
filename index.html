@@ -54,7 +54,7 @@
     <a href="#synergy">Sinergi Terapi Cara Kerja &amp; Kaunseling</a>
     <a href="#about">Falsafah CS</a>
     <a href="#booking">Promosi Terhad</a>
-    <a class="nav-appointment" href="#booking">Temu Janji <span aria-hidden="true">›</span></a>
+    <a class="nav-appointment" href="https://wa.me/601111073573?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20perkhidmatan%20CS." target="_blank" rel="noopener">Temu Janji <span aria-hidden="true">›</span></a>
   </nav>
 </header>
 
@@ -78,7 +78,7 @@
       <p class="tagline">Teruskan Kehidupan Bermakna<br class="desktop-break"> dengan Limitasi Sedia Ada.</p>
       <p class="tagline-en"><em>Live Meaningfully, Within Existing Limitations.</em></p>
       <div class="hero-actions">
-        <a class="button button-primary" href="#booking">Temu Janji &nbsp;›</a>
+        <a class="button button-primary" href="https://wa.me/601111073573?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20perkhidmatan%20CS." target="_blank" rel="noopener">Temu Janji &nbsp;›</a>
         <a class="button button-outline" href="#about">Ketahui Lebih Lanjut &nbsp;›</a>
       </div>
     </div>
@@ -289,7 +289,7 @@
 
 
   <audio id="cs-background-music" preload="auto" loop playsinline>
-    <source src="assets/ocean-wave.mp3?v=20" type="audio/mpeg">
+    <source src="./assets/ocean-wave.mp3?v=21" type="audio/mpeg">
   </audio>
 
   <section id="booking" class="contact section-wrap">
@@ -327,26 +327,23 @@
   const audio = document.getElementById('cs-background-music');
   if (!button || !label || !audio) return;
 
-  // Always start in OFF state. Only show ON after the browser confirms playback.
   function setState(isOn) {
     label.textContent = isOn ? 'ON' : 'OFF';
     button.setAttribute('aria-label', isOn ? 'Matikan muzik' : 'Hidupkan muzik');
     button.setAttribute('aria-pressed', String(isOn));
     button.style.background = isOn ? '#b88953' : '#073f43';
     button.style.color = '#fff';
+    button.title = isOn ? 'Muzik sedang dimainkan — tekan untuk matikan' : 'Muzik OFF — tekan untuk hidupkan';
   }
   setState(false);
   audio.pause();
 
-  audio.addEventListener('playing', function () {
-    setState(true);
-    button.title = 'Muzik sedang dimainkan — tekan untuk matikan';
-  });
+  audio.addEventListener('playing', function () { setState(true); });
   audio.addEventListener('pause', function () { setState(false); });
   audio.addEventListener('ended', function () { setState(false); });
   audio.addEventListener('error', function () {
     setState(false);
-    button.title = 'Audio gagal dimuatkan. Semak laluan assets/ocean-wave.mp3.';
+    button.title = 'Audio gagal dimuatkan. Semak URL assets/ocean-wave.mp3';
   });
 
   button.addEventListener('click', function () {
@@ -354,18 +351,16 @@
       audio.pause();
       audio.currentTime = 0;
       setState(false);
-      button.title = 'Muzik OFF — tekan untuk hidupkan';
       return;
     }
-    // Call play() directly inside the user click handler for mobile browser permission.
+    // Directly trigger playback from the user's tap for mobile browser policies.
     audio.volume = 0.55;
-    const playRequest = audio.play();
-    if (playRequest && typeof playRequest.then === 'function') {
-      playRequest.then(function () {
-        // The playing event changes the label to ON; don't set ON prematurely.
-      }).catch(function (error) {
+    if (audio.readyState === 0) audio.load();
+    const request = audio.play();
+    if (request && typeof request.catch === 'function') {
+      request.catch(function (error) {
         setState(false);
-        button.title = 'Audio belum dapat dimainkan. Cuba sekali lagi atau semak fail MP3.';
+        button.title = 'Muzik tidak dapat dimainkan. Semak URL fail MP3 atau cuba lagi.';
         console.warn('CS audio playback error:', error);
       });
     }
