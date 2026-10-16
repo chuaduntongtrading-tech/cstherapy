@@ -316,17 +316,17 @@ button, input, textarea, select { font: inherit; }
   justify-content: center;
   align-items: baseline;
   gap: .3rem;
-  margin: 1.15rem auto 0;
-  padding-top: .75rem;
-  border-top: 1px solid rgba(216,173,141,.16);
-  color: rgba(255,253,248,.42);
-  font: 400 .64rem/1.5 var(--sans);
+  margin: .8rem auto 0;
+  padding-top: .55rem;
+  border-top: 1px solid rgba(216,173,141,.10);
+  color: rgba(255,253,248,.30);
+  font: 400 .52rem/1.4 var(--sans);
 }
 .developer-credit strong {
-  color: rgba(216,173,141,.8);
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .025em;
+  color: rgba(216,173,141,.58);
+  font-size: .54rem;
+  font-weight: 500;
+  letter-spacing: .015em;
 }
 .developer-credit small { flex-basis: 100%; color: rgba(255,253,248,.38); font-size: .6rem; }
 
@@ -414,7 +414,7 @@ button, input, textarea, select { font: inherit; }
   .site-footer > .footer-specialty { max-width: 310px; margin: .55rem auto; font-size: .68rem; }
   .site-footer > p:not(.footer-specialty) { max-width: 330px; margin: .6rem auto; font-size: .92rem; }
   .site-footer > small { max-width: 340px; margin-top: .65rem; font-size: .62rem; }
-  .developer-credit { margin-top: .85rem; padding-top: .6rem; gap: .25rem; font-size: .59rem; }
-  .developer-credit strong { font-size: .61rem; }
-  .developer-credit small { font-size: .57rem; }
+  .developer-credit { margin-top: .65rem; padding-top: .45rem; gap: .2rem; font-size: .48rem; }
+  .developer-credit strong { font-size: .5rem; }
+  .developer-credit small { font-size: .46rem; }
 }
