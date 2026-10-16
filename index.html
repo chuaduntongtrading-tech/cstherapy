@@ -23,6 +23,9 @@
       <small>GUIDANCE &amp; EDUCATION</small>
     </span>
   </a>
+  <button id="music-toggle" type="button" aria-pressed="false" aria-label="Hidupkan muzik" title="Muzik ON/OFF" style="display:inline-flex;align-items:center;justify-content:center;gap:.35rem;flex-shrink:0;padding:.55rem .7rem;margin-left:auto;margin-right:.55rem;border:1px solid rgba(7,63,67,.25);border-radius:999px;background:#073f43;color:#fff;font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;">
+    <span aria-hidden="true">♫</span><span id="music-toggle-label">OFF</span>
+  </button>
   <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Buka menu">
     <span></span><span></span><span></span>
   </button>
@@ -231,18 +234,9 @@
   </section>
 
 
-  <section id="relaxation-audio" class="section-wrap" style="padding-top:2.5rem;padding-bottom:2.5rem;">
-    <div style="max-width:760px;margin:0 auto;padding:1.35rem 1.5rem;border:1px solid rgba(7,63,67,.18);border-radius:18px;background:linear-gradient(135deg,rgba(236,244,239,.92),rgba(255,250,242,.96));">
-      <p class="eyebrow" style="margin-bottom:.5rem;">RUANG RELAKSASI</p>
-      <h2 style="margin:0 0 .55rem;color:#073f43;font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.35rem,3vw,1.8rem);">Luangkan seketika untuk bertenang.</h2>
-      <p style="margin:0 0 1rem;color:#465657;line-height:1.7;">Dengarkan muzik yang menenangkan apabila anda bersedia. Muzik tidak dimainkan secara automatik; tekan butang main untuk memulakannya.</p>
-      <audio controls preload="none" style="display:block;width:100%;max-width:520px;">
-        <source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Peaceful.ogg" type="audio/ogg">
-        Pelayar anda tidak menyokong pemain audio. <a href="https://commons.wikimedia.org/wiki/File:Peaceful.ogg">Dengar muzik di Wikimedia Commons</a>.
-      </audio>
-      <p style="margin:.8rem 0 0;color:#6d7776;font-size:.78rem;line-height:1.6;">Muzik: “Peaceful” oleh Tamlin Lollis Love · <a href="https://commons.wikimedia.org/wiki/File:Peaceful.ogg" target="_blank" rel="noopener">Sumber</a> · Lesen <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</p>
-    </div>
-  </section>
+  <audio id="cs-background-music" preload="none" loop>
+    <source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Peaceful.ogg" type="audio/ogg">
+  </audio>
 
   <section id="booking" class="contact section-wrap">
     <div class="training-offer" style="max-width:760px;margin:0 auto 2.5rem;padding:1.4rem 1.6rem;border:1px solid rgba(184,137,83,.55);border-radius:18px;background:linear-gradient(135deg,rgba(248,244,235,.98),rgba(255,255,255,.96));box-shadow:0 12px 32px rgba(7,63,67,.07);text-align:left;">
@@ -272,6 +266,39 @@
     <strong>OTR ChuadSteady</strong>
   </div>
 </footer>
+<script>
+  (function () {
+    const button = document.getElementById('music-toggle');
+    const label = document.getElementById('music-toggle-label');
+    const audio = document.getElementById('cs-background-music');
+    if (!button || !label || !audio) return;
+    button.addEventListener('click', async function () {
+      if (audio.paused) {
+        try {
+          await audio.play();
+          label.textContent = 'ON';
+          button.setAttribute('aria-label', 'Matikan muzik');
+          button.setAttribute('aria-pressed', 'true');
+        } catch (error) {
+          label.textContent = 'OFF';
+          button.setAttribute('aria-label', 'Hidupkan muzik');
+          button.setAttribute('aria-pressed', 'false');
+        }
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        label.textContent = 'OFF';
+        button.setAttribute('aria-label', 'Hidupkan muzik');
+        button.setAttribute('aria-pressed', 'false');
+      }
+    });
+    audio.addEventListener('ended', function () {
+      label.textContent = 'OFF';
+      button.setAttribute('aria-label', 'Hidupkan muzik');
+      button.setAttribute('aria-pressed', 'false');
+    });
+  })();
+</script>
 <script src="script.js"></script>
 </body>
 </html>
