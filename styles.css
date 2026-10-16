@@ -143,8 +143,10 @@ button, input, textarea, select { font: inherit; }
   animation: hero-enter .9s ease both;
 }
 .hero-logo {
-  width: clamp(105px, 13vw, 155px); height: clamp(105px, 13vw, 155px);
-  object-fit: contain; margin: 0 auto 1.2rem;
+  width: clamp(160px, 18vw, 200px);
+  height: clamp(160px, 18vw, 200px);
+  object-fit: contain;
+  margin: 0 auto 1.2rem;
   filter: drop-shadow(0 8px 16px rgba(7,63,67,.12));
 }
 .eyebrow {
@@ -372,7 +374,11 @@ button, input, textarea, select { font: inherit; }
   .brand-copy strong { font-size: .72rem; letter-spacing: .1em; }
   .brand-copy small { font-size: .55rem; letter-spacing: .07em; }
   .hero { padding: 3.2rem 1rem 4rem; }
-  .hero-logo { width: 100px; height: 100px; margin-bottom: 1rem; }
+  .hero-logo {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 1rem;
+}
   .hero .eyebrow { max-width: 300px; margin-inline: auto; font-size: .61rem; letter-spacing: .14em; }
   .hero h1 { font-size: clamp(2rem, 9vw, 2.7rem); }
   .integration { max-width: 330px; font-size: .86rem; }
