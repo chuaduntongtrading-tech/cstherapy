@@ -418,3 +418,52 @@ button, input, textarea, select { font: inherit; }
   .developer-credit strong { font-size: .5rem; }
   .developer-credit small { font-size: .46rem; }
 }
+
+
+/* CS logo: larger hero mark */
+.hero-logo {
+  width: clamp(145px, 17vw, 205px);
+  height: clamp(145px, 17vw, 205px);
+  object-fit: contain;
+  margin: 0 auto 1.2rem;
+  filter: drop-shadow(0 10px 20px rgba(7,63,67,.16));
+}
+@media (max-width: 520px) {
+  .hero-logo {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+/* One-time logo reveal on page load/refresh */
+.logo-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: var(--ivory);
+  animation: intro-screen-out .7s ease 1.35s forwards;
+}
+.logo-intro img {
+  width: clamp(145px, 24vw, 230px);
+  height: clamp(145px, 24vw, 230px);
+  object-fit: contain;
+  filter: drop-shadow(0 12px 25px rgba(7,63,67,.18));
+  animation: logo-spin-merge 1.35s cubic-bezier(.2,.75,.25,1) forwards;
+}
+@keyframes logo-spin-merge {
+  0% { opacity: 0; transform: rotate(-180deg) scale(.35); }
+  18% { opacity: 1; }
+  62% { opacity: 1; transform: rotate(360deg) scale(1); }
+  100% { opacity: 0; transform: rotate(720deg) scale(.28); }
+}
+@keyframes intro-screen-out {
+  0% { opacity: 1; visibility: visible; }
+  99% { opacity: 0; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-intro { display: none; }
+}
