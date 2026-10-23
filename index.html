@@ -132,7 +132,7 @@ body.cs-profile-open{overflow:hidden}
       <img src="assets/logo-cs.png" alt="Logo rasmi CS" class="hero-logo">
       <p class="eyebrow">KONSULTASI · BIMBINGAN · PSIKO-PENDIDIKAN</p>
       <h1>Occupational Therapy<br>Guidance &amp; Consultation</h1>
-      <p class="integration">Integrated with Guidance Counselling<br class="desktop-break"> &amp; Mental Health Rehabilitation</p>
+      <p class="integration">Integrated with Guidance Counselling<br> &amp; Mental Health Rehabilitation</p>
       <div class="ornament" aria-hidden="true"><span></span>❧<span></span></div>
       <p class="tagline">Teruskan Kehidupan Bermakna<br class="desktop-break"> dengan Limitasi Sedia Ada.</p>
       <p class="tagline-en"><em>Live Meaningfully, Within Existing Limitations.</em></p>
@@ -357,7 +357,19 @@ body.cs-profile-open{overflow:hidden}
     .cs-music-credit-dialog .cs-credit-line{margin:7px 0;font-size:.92rem;line-height:1.55;color:#465657}
     .cs-music-credit-dialog .cs-credit-note{margin:16px 0 0;padding-top:12px;border-top:1px solid rgba(7,63,67,.15);font-size:.75rem;line-height:1.5;color:#687674}
     .cs-music-credit-close{position:absolute;top:12px;right:12px;display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:50%;background:rgba(7,63,67,.08);color:#073f43;font-size:1.3rem;cursor:pointer}
-    @media(max-width:520px){.cs-music-controls{margin-right:.35rem!important;gap:.25rem!important}.cs-music-controls #music-toggle{padding:.48rem .58rem!important;font-size:.75rem!important}.cs-music-controls #music-credit-open{width:31px!important;height:31px!important}}
+    @media(max-width:520px){
+  /* Keep the brand, compact music controls and menu on one row. */
+  .site-header{display:grid!important;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;column-gap:6px;row-gap:0}
+  .site-header>.brand{grid-column:1;grid-row:1;min-width:0;max-width:100%;overflow:hidden}
+  .site-header>.brand .brand-copy{min-width:0;overflow:hidden}
+  .site-header>.brand .brand-copy strong{font-size:.60rem;letter-spacing:.025em}
+  .site-header>.brand .brand-copy small{font-size:.54rem;letter-spacing:0}
+  .site-header>.cs-music-controls{grid-column:2;grid-row:1;margin:0!important;justify-self:end;gap:.22rem!important}
+  .site-header>.cs-music-controls #music-toggle{padding:.28rem .42rem!important;font-size:.66rem!important;gap:.2rem!important}
+  .site-header>.cs-music-controls #music-credit-open{width:27px!important;height:27px!important;font-size:.88rem!important}
+  .site-header>.menu-toggle{grid-column:3;grid-row:1;align-self:center;margin:0!important}
+  .site-header{padding-top:12px!important;padding-bottom:12px!important}
+}
   </style>
   <div id="cs-music-credit-overlay" class="cs-music-credit-overlay" aria-hidden="true">
     <section class="cs-music-credit-dialog" role="dialog" aria-modal="true" aria-labelledby="cs-music-credit-title" tabindex="-1">
