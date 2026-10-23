@@ -97,9 +97,12 @@ body.cs-profile-open{overflow:hidden}
       <small>GUIDANCE &amp; CONSULTATION</small>
     </span>
   </a>
-  <button id="music-toggle" type="button" aria-pressed="false" aria-label="Hidupkan muzik" title="Muzik ON/OFF" style="display:inline-flex;align-items:center;justify-content:center;gap:.35rem;flex-shrink:0;padding:.55rem .7rem;margin-left:auto;margin-right:.55rem;border:1px solid rgba(7,63,67,.25);border-radius:999px;background:#073f43;color:#fff;font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;">
-    <span aria-hidden="true">♫</span><span id="music-toggle-label">OFF</span>
-  </button>
+  <div class="cs-music-controls" style="display:flex;align-items:center;gap:.35rem;flex-shrink:0;margin-left:auto;margin-right:.55rem;">
+    <button id="music-toggle" type="button" aria-pressed="false" aria-label="Hidupkan muzik" title="Muzik ON/OFF" style="display:inline-flex;align-items:center;justify-content:center;gap:.35rem;padding:.55rem .7rem;border:1px solid rgba(7,63,67,.25);border-radius:999px;background:#073f43;color:#fff;font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;">
+      <span aria-hidden="true">♫</span><span id="music-toggle-label">OFF</span>
+    </button>
+    <button id="music-credit-open" type="button" aria-label="Lihat kredit lagu Perjalanan" title="Kredit lagu" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(7,63,67,.22);border-radius:50%;background:transparent;color:#073f43;font:inherit;font-size:1rem;font-weight:700;cursor:pointer;">i</button>
+  </div>
   <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Buka menu">
     <span></span><span></span><span></span>
   </button>
@@ -344,8 +347,34 @@ body.cs-profile-open{overflow:hidden}
   </section>
 
 
-  <audio id="cs-background-music" preload="auto" loop playsinline>
-    <source src="./assets/ocean-wave.mp3?v=21" type="audio/mpeg">
+  <style>
+    .cs-music-credit-overlay{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(5,29,30,.62);backdrop-filter:blur(4px)}
+    .cs-music-credit-overlay.is-open{display:flex}
+    .cs-music-credit-dialog{position:relative;width:min(100%,390px);padding:25px 22px 22px;border:1px solid rgba(184,137,83,.5);border-radius:20px;background:#f8f4eb;color:#173f3e;box-shadow:0 20px 65px rgba(0,0,0,.24)}
+    .cs-music-credit-dialog h2{margin:0 36px 8px 0;color:#073f43;font-family:'Playfair Display',Georgia,serif;font-size:1.45rem}
+    .cs-music-credit-dialog .cs-credit-kicker{margin:0 0 12px;color:#a27442;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+    .cs-music-credit-dialog .cs-credit-song{margin:0 0 14px;font-size:1.12rem;font-weight:700}
+    .cs-music-credit-dialog .cs-credit-line{margin:7px 0;font-size:.92rem;line-height:1.55;color:#465657}
+    .cs-music-credit-dialog .cs-credit-note{margin:16px 0 0;padding-top:12px;border-top:1px solid rgba(7,63,67,.15);font-size:.75rem;line-height:1.5;color:#687674}
+    .cs-music-credit-close{position:absolute;top:12px;right:12px;display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:50%;background:rgba(7,63,67,.08);color:#073f43;font-size:1.3rem;cursor:pointer}
+    @media(max-width:520px){.cs-music-controls{margin-right:.35rem!important;gap:.25rem!important}.cs-music-controls #music-toggle{padding:.48rem .58rem!important;font-size:.75rem!important}.cs-music-controls #music-credit-open{width:31px!important;height:31px!important}}
+  </style>
+  <div id="cs-music-credit-overlay" class="cs-music-credit-overlay" aria-hidden="true">
+    <section class="cs-music-credit-dialog" role="dialog" aria-modal="true" aria-labelledby="cs-music-credit-title" tabindex="-1">
+      <button id="cs-music-credit-close" class="cs-music-credit-close" type="button" aria-label="Tutup kredit">×</button>
+      <p class="cs-credit-kicker">Kredit Muzik Latar</p>
+      <h2 id="cs-music-credit-title">Perjalanan</h2>
+      <p class="cs-credit-song">Putra Aiman &amp; Haikal Iman</p>
+      <p class="cs-credit-line"><strong>Komposer:</strong> Munif Ahmad</p>
+      <p class="cs-credit-line"><strong>Penulis lirik:</strong> Ahmad Fedtri Yahya</p>
+      <p class="cs-credit-line"><strong>Label:</strong> Munif Hijjaz Production</p>
+      <p class="cs-credit-line"><strong>Tarikh keluaran:</strong> 19 Oktober 2024</p>
+      <p class="cs-credit-note">Nasyid / Pop Malaysia. Kredit ini mengiktiraf pencipta dan pemilik karya; ia bukan pengganti kebenaran penggunaan lagu.</p>
+    </section>
+  </div>
+
+  <audio id="cs-background-music" preload="auto" autoplay loop playsinline>
+    <source src="assets/Perjalanan.mp3" type="audio/mpeg">
   </audio>
 
   <section id="booking" class="contact section-wrap">
@@ -392,15 +421,24 @@ body.cs-profile-open{overflow:hidden}
     button.title = isOn ? 'Muzik sedang dimainkan — tekan untuk matikan' : 'Muzik OFF — tekan untuk hidupkan';
   }
   setState(false);
-  audio.pause();
 
   audio.addEventListener('playing', function () { setState(true); });
   audio.addEventListener('pause', function () { setState(false); });
   audio.addEventListener('ended', function () { setState(false); });
   audio.addEventListener('error', function () {
     setState(false);
-    button.title = 'Audio gagal dimuatkan. Semak URL assets/ocean-wave.mp3';
+    button.title = 'Audio gagal dimuatkan. Pastikan fail assets/Perjalanan.mp3 wujud dan formatnya MP3';
   });
+
+  // Try audible autoplay on page load. Browsers may block it until the visitor interacts.
+  audio.volume = 0.55;
+  const autoplayRequest = audio.play();
+  if (autoplayRequest && typeof autoplayRequest.catch === 'function') {
+    autoplayRequest.catch(function () {
+      setState(false);
+      button.title = 'Autoplay mungkin disekat oleh pelayar. Tekan ON untuk memainkan muzik.';
+    });
+  }
 
   button.addEventListener('click', function () {
     if (!audio.paused) {
@@ -416,11 +454,27 @@ body.cs-profile-open{overflow:hidden}
     if (request && typeof request.catch === 'function') {
       request.catch(function (error) {
         setState(false);
-        button.title = 'Muzik tidak dapat dimainkan. Semak URL fail MP3 atau cuba lagi.';
+        button.title = 'Muzik tidak dapat dimainkan. Pastikan assets/Perjalanan.mp3 wujud dan cuba lagi.';
         console.warn('CS audio playback error:', error);
       });
     }
   });
+})();
+</script>
+<script>
+(function(){
+  const openButton=document.getElementById('music-credit-open');
+  const closeButton=document.getElementById('cs-music-credit-close');
+  const overlay=document.getElementById('cs-music-credit-overlay');
+  const dialog=overlay && overlay.querySelector('.cs-music-credit-dialog');
+  if(!openButton||!closeButton||!overlay||!dialog)return;
+  let previousFocus=null;
+  function openCredit(){previousFocus=document.activeElement;overlay.classList.add('is-open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';dialog.focus();}
+  function closeCredit(){overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';if(previousFocus&&previousFocus.focus)previousFocus.focus();}
+  openButton.addEventListener('click',openCredit);
+  closeButton.addEventListener('click',closeCredit);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeCredit();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeCredit();});
 })();
 </script>
 <script>
