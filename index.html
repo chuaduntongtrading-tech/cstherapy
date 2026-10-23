@@ -100,8 +100,59 @@ body.cs-profile-open{overflow:hidden}
  .site-footer .footer-brand span{font-size:.82rem;letter-spacing:0;max-width:230px}
 }
 </style>
+<style id="cs-card-loader-styles">
+/* CS Therapy signature card-to-portal loader */
+#cs-card-loader{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#f7f1e5 0%,#e9e6d9 48%,#d6ded7 100%);opacity:1;visibility:visible;transition:opacity .55s ease,visibility .55s ease;color:#073f43}
+#cs-card-loader.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+#cs-card-loader .loader-glow{position:absolute;width:min(78vw,440px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(184,137,83,.27),rgba(7,63,67,.07) 48%,transparent 70%);animation:csGlow 2.8s ease-in-out infinite}
+#cs-card-loader .loader-scene{position:relative;width:min(84vw,370px);height:300px;perspective:1100px;display:grid;place-items:center}
+#cs-card-loader .loader-card{position:absolute;width:min(76vw,310px);height:190px;transform-style:preserve-3d;animation:csCardJourney 3.35s cubic-bezier(.62,0,.28,1) both;filter:drop-shadow(0 22px 18px rgba(7,35,35,.23))}
+#cs-card-loader .loader-face{position:absolute;inset:0;overflow:hidden;border:1px solid rgba(184,137,83,.9);border-radius:13px;backface-visibility:hidden;box-sizing:border-box;background:linear-gradient(120deg,#a7a8a3,#f1e8d6 33%,#b8b7af 56%,#073f43 57%,#07545a 75%,#0b2c35);color:#092f33}
+#cs-card-loader .loader-face:after{content:"";position:absolute;inset:-60% -30%;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.5) 48%,transparent 56%);transform:translateX(-100%);animation:csCardShine 2.5s ease-in-out .35s}
+#cs-card-loader .loader-front{padding:18px 17px;transform:rotateY(0deg);}
+#cs-card-loader .loader-back{transform:rotateY(180deg);padding:14px 12px;background:linear-gradient(145deg,#eee7d8,#b8b8ae 50%,#073f43 51%,#0b3037);}
+#cs-card-loader .loader-brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:21px;letter-spacing:-.04em;position:relative;z-index:1}
+#cs-card-loader .loader-brand-mark{display:grid;place-items:center;width:43px;height:43px;border:2px solid #b88953;border-radius:50%;background:#073f43;color:#f8f0df;font-family:Georgia,serif;font-size:25px;box-shadow:inset 0 0 0 3px rgba(184,137,83,.25)}
+#cs-card-loader .loader-profession{position:relative;z-index:1;margin:10px 0 0 51px;font-size:10px;line-height:1.4;font-weight:700;max-width:125px}
+#cs-card-loader .loader-contact{position:relative;z-index:1;margin:10px 0 0 51px;font-size:13px;letter-spacing:.12em;font-weight:700}
+#cs-card-loader .loader-qr{position:absolute;right:15px;bottom:18px;width:50px;height:50px;border:5px solid #fffaf0;border-radius:4px;background:repeating-conic-gradient(#073f43 0 25%,#fffaf0 0 50%) 0/8px 8px;box-shadow:0 0 0 1px #b88953}
+#cs-card-loader .loader-pyramids{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;height:100%;align-items:center;position:relative;z-index:1}
+#cs-card-loader .loader-pyramid{height:128px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;clip-path:polygon(50% 0,100% 100%,0 100%);padding:12px 3px 6px;box-sizing:border-box;background:linear-gradient(to bottom,#c86f45 0 27%,#d7a65d 27% 49%,#77a98b 49% 72%,#4e8eae 72%);color:#073f43;font-size:8px;font-weight:800;text-align:center;line-height:1.2}
+#cs-card-loader .loader-pyramid:nth-child(2){background:linear-gradient(to bottom,#c86f45 0 27%,#d7a65d 27% 49%,#77a98b 49% 72%,#4e8eae 72%)}
+#cs-card-loader .loader-pyramid:nth-child(3){background:linear-gradient(to bottom,#c86f45 0 27%,#d7a65d 27% 49%,#77a98b 49% 72%,#4e8eae 72%)}
+#cs-card-loader .loader-slot{position:absolute;bottom:16px;width:min(78vw,335px);height:18px;border-radius:50%;background:#072e32;box-shadow:0 0 0 5px rgba(184,137,83,.7),0 0 26px 8px rgba(184,137,83,.35);transform:scaleX(.15);opacity:0;animation:csSlot 3.35s ease both}
+#cs-card-loader .loader-copy{position:absolute;bottom:calc(50% - 190px);text-align:center;width:90%;font-family:'DM Sans',sans-serif;letter-spacing:.17em;text-transform:uppercase;font-size:.72rem;font-weight:700;color:#073f43}
+#cs-card-loader .loader-copy strong{display:block;font-family:'Playfair Display',Georgia,serif;letter-spacing:.04em;text-transform:none;font-size:1.12rem;margin-bottom:6px}
+#cs-card-loader .loader-skip{position:absolute;bottom:24px;right:22px;border:1px solid rgba(7,63,67,.28);border-radius:999px;background:rgba(255,250,240,.7);padding:8px 13px;color:#073f43;font:inherit;font-size:.75rem;cursor:pointer}
+@keyframes csCardJourney{0%{transform:translateY(12px) rotateY(0deg) rotateZ(-4deg) scale(.92);opacity:0}10%{opacity:1}28%{transform:translateY(0) rotateY(180deg) rotateZ(2deg) scale(1)}52%{transform:translateY(-3px) rotateY(360deg) rotateZ(-1deg) scale(1)}70%{transform:translateY(42px) rotateY(540deg) rotateZ(0) scale(.83)}88%,100%{transform:translateY(165px) rotateY(720deg) rotateZ(0) scale(.18);opacity:0}}
+@keyframes csSlot{0%,52%{opacity:0;transform:scaleX(.15)}62%{opacity:1;transform:scaleX(1)}100%{opacity:1;transform:scaleX(1)}}
+@keyframes csCardShine{0%,20%{transform:translateX(-100%)}65%,100%{transform:translateX(100%)}}
+@keyframes csGlow{0%,100%{transform:scale(.92);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+@media(max-width:520px){#cs-card-loader .loader-scene{height:265px}#cs-card-loader .loader-card{height:166px}#cs-card-loader .loader-front{padding:14px}#cs-card-loader .loader-brand{font-size:19px}#cs-card-loader .loader-brand-mark{width:38px;height:38px;font-size:22px}#cs-card-loader .loader-profession{margin-left:46px;font-size:9px}#cs-card-loader .loader-contact{margin-left:46px;font-size:11px}#cs-card-loader .loader-qr{width:42px;height:42px;right:12px;bottom:14px}#cs-card-loader .loader-pyramid{height:112px;font-size:7px}#cs-card-loader .loader-copy{bottom:calc(50% - 165px);font-size:.62rem}#cs-card-loader .loader-copy strong{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){#cs-card-loader .loader-card,#cs-card-loader .loader-glow,#cs-card-loader .loader-slot,#cs-card-loader .loader-face:after{animation-duration:.01ms!important;animation-iteration-count:1!important}#cs-card-loader{transition:none}}
+</style>
 </head>
 <body>
+<div id="cs-card-loader" role="status" aria-live="polite" aria-label="Memuatkan CS Therapy">
+  <div class="loader-glow" aria-hidden="true"></div>
+  <div class="loader-scene" aria-hidden="true">
+    <div class="loader-card">
+      <div class="loader-face loader-front">
+        <div class="loader-brand"><span class="loader-brand-mark">CS</span><span>Therapycard</span></div>
+        <div class="loader-profession">Occupational Therapist<br>Psychiatry &amp; Mental Health Rehabilitation</div>
+        <div class="loader-contact">011-11073573</div>
+        <div class="loader-qr"></div>
+      </div>
+      <div class="loader-face loader-back">
+        <div class="loader-pyramids"><div class="loader-pyramid">PIRAMID<br>PEMBELAJARAN</div><div class="loader-pyramid">HIERARKI<br>KEPERLUAN</div><div class="loader-pyramid">KECERDASAN<br>MANUSIA</div></div>
+      </div>
+    </div>
+    <div class="loader-slot"></div>
+  </div>
+  <div class="loader-copy"><strong>CS Therapy</strong>Satu kad. Satu imbasan. Satu dunia baharu.</div>
+  <button class="loader-skip" type="button" id="cs-loader-skip">Langkau ›</button>
+</div>
+
 <a class="skip-link" href="#main">Langkau ke kandungan</a>
 
 <header class="site-header">
@@ -601,6 +652,23 @@ body.cs-profile-open{overflow:hidden}
   tabs.forEach(tab=>tab.addEventListener('click',()=>selectTab(tab.dataset.tab)));
   tabs.forEach((tab,index)=>tab.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=(index+(event.key==='ArrowRight'?1:tabs.length-1))%tabs.length;tabs[next].focus();selectTab(tabs[next].dataset.tab);}}));
   selectTab('summary');
+})();
+</script>
+<script id="cs-card-loader-script">
+(function(){
+  const loader=document.getElementById('cs-card-loader');
+  const skip=document.getElementById('cs-loader-skip');
+  if(!loader)return;
+  let hidden=false;
+  function hideLoader(){if(hidden)return;hidden=true;loader.classList.add('is-leaving');setTimeout(()=>{if(loader.parentNode)loader.parentNode.removeChild(loader);},650);}
+  if(skip)skip.addEventListener('click',hideLoader);
+  // Keep the intro brief, but never hold the visitor if the page is already ready.
+  const minimum=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches?250:3200;
+  const start=Date.now();
+  function finishWhenReady(){const wait=Math.max(0,minimum-(Date.now()-start));setTimeout(hideLoader,wait);}
+  if(document.readyState==='complete')finishWhenReady();else window.addEventListener('load',finishWhenReady,{once:true});
+  // Safety fallback if a slow external resource prevents the load event.
+  setTimeout(hideLoader,6500);
 })();
 </script>
 <script src="script.js"></script>
