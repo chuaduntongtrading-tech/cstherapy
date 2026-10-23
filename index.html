@@ -85,6 +85,21 @@ body.cs-profile-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.cs-profile-fab:hover .avatar-img{transform:none;transition:none}}
 
 </style>
+
+<style id="cs-final-footer-adjustments">
+/* Final footer refinements */
+.site-footer .footer-specialty{max-width:100%;text-wrap:balance}
+.site-footer .footer-specialty .footer-specialty-second-line{display:block}
+.site-footer .footer-brand{display:flex;align-items:center;gap:.45rem}
+.site-footer .footer-brand img{width:54px;height:54px;object-fit:contain;flex:0 0 54px}
+.site-footer .footer-brand span{margin-left:0;line-height:1.35}
+@media(max-width:520px){
+ .site-footer .footer-specialty{max-width:340px;margin-left:auto;margin-right:auto}
+ .site-footer .footer-brand{gap:.35rem}
+ .site-footer .footer-brand img{width:62px;height:62px;flex-basis:62px}
+ .site-footer .footer-brand span{font-size:.88rem;letter-spacing:0}
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Langkau ke kandungan</a>
@@ -410,7 +425,7 @@ body.cs-profile-open{overflow:hidden}
     <img src="assets/logo-cs.png" alt="" loading="lazy">
     <span>CS | Occupational Therapy Guidance &amp; Consultation</span>
   </a>
-  <p class="footer-specialty">Integrated with Guidance Counselling &amp; Mental Health Rehabilitation</p>
+  <p class="footer-specialty">Integrated with Guidance Counselling<span class="footer-specialty-second-line">&amp; Mental Health Rehabilitation</span></p>
   <small>Maklumat di laman ini adalah untuk tujuan penerangan dan pendidikan. Perkhidmatan tertakluk kepada skop amalan dan keperluan institusi.</small>
   <div class="developer-credit">
     <span>Developed by</span>
