@@ -63,7 +63,6 @@
 .cs-profile-counselling .mini-icon{flex:0 0 38px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#0b4b49;color:white;font-size:1.1rem}
 .cs-profile-counselling strong{display:block;color:#914d32;font-size:.9rem;margin-bottom:4px}
 .cs-profile-counselling p{margin:0;font-size:.8rem;line-height:1.5}
-.cs-profile-disclaimer{border-left:3px solid #b88953;background:#f3ede2;padding:10px 12px;font-size:.78rem;line-height:1.55;border-radius:0 10px 10px 0}
 .cs-profile-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .cs-profile-actions a{flex:1;min-width:150px;text-align:center;border-radius:12px;padding:12px 14px;font:inherit;font-size:.84rem;font-weight:700;text-decoration:none;background:#a85f3c;color:#fff}
 .cs-profile-actions a:hover{background:#073f43}
@@ -487,7 +486,7 @@ body.cs-profile-open{overflow:hidden}
       <span class="mini-icon" aria-hidden="true">♡</span>
       <div><strong>Guidance Counselling · Counselor Trainee</strong><p>Pengajian Sarjana Pendidikan dalam Bimbingan dan Kaunseling sedang berlangsung. Sebarang perkhidmatan kaunseling diberikan dalam kapasiti pelatih, tertakluk pada skop latihan, ketersediaan dan penyeliaan yang berkenaan.</p></div>
     </div>
-    <p class="cs-profile-disclaimer">Maklumat profil ini ialah pengenalan ringkas. Kelayakan OT dan status latihan kaunseling diterangkan secara berasingan bagi mengelakkan kekeliruan tentang kapasiti profesional.</p>
+    
     <div class="cs-profile-actions">
       <a href="https://wa.me/601111073573?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20perkhidmatan%20CS%20Therapy." target="_blank" rel="noopener">Hubungi melalui WhatsApp ↗</a>
     </div>
@@ -504,9 +503,9 @@ body.cs-profile-open{overflow:hidden}
   if(!openButton||!backdrop||!panel||!closeButton||!tabpanel)return;
   const contents={
     summary:{label:'cs-tab-summary',html:'<h3>Ahli Terapi Cara Kerja Berdaftar (OTR/L)</h3><p class="profile-copy">Ahli terapi cara kerja dengan lebih 12 tahun pengalaman klinikal dan komuniti dalam psikiatri serta kesihatan mental, merangkumi remaja, dewasa dan psikogeriatri.</p><h3>Pendekatan kerja</h3><p class="profile-copy">Berfokus pada individu, fungsi harian, regulasi emosi, penyertaan dan pemulihan bermakna melalui pendekatan holistik serta kolaboratif.</p>'},
-    education:{label:'cs-tab-education',html:'<h3>Sarjana Pendidikan dalam Bimbingan dan Kaunseling</h3><p class="profile-copy">Universiti Pendidikan Sultan Idris (UPSI) — sedang berlangsung.</p><h3>Ijazah Sarjana Muda Terapi Cara Kerja (Kepujian)</h3><p class="profile-copy">Universiti Teknologi MARA (UiTM).</p><h3>Diploma Jurupulih Perubatan (Cara Kerja)</h3><p class="profile-copy">Kolej Sains Kesihatan Bersekutu Johor Bahru.</p><p class="profile-copy"><strong>Pendaftaran OT:</strong> MAHPC(OT)00161.</p>'},
-    experience:{label:'cs-tab-experience',html:'<h3>Senior Occupational Therapist · Psychiatry &amp; Mental Health</h3><p class="profile-copy">Hospital Sultan Abdul Halim (HSAH) — 2019 hingga kini, seperti dinyatakan dalam resume.</p><h3>Pengalaman terdahulu</h3><ul><li>Ketua Unit Terapi Cara Kerja — amalan komuniti, Pejabat Kesihatan Daerah Bandar Baharu.</li><li>Jurupulih Cara Kerja di Hospital Kulim dan penempatan Hospital Sultanah Bahiyah.</li><li>Sokongan psikososial dan pendidikan kesihatan mental komuniti.</li></ul>'},
-    focus:{label:'cs-tab-focus',html:'<h3>Bidang kepakaran dan minat</h3><div class="cs-profile-tags"><span>Intervensi psikososial</span><span>Intervensi tingkah laku</span><span>Regulasi emosi</span><span>Rehabilitasi psikiatri komuniti</span><span>Sokongan krisis &amp; Psychological First Aid</span><span>Advokasi kesihatan mental</span><span>Integrasi penjagaan spiritual</span></div><p class="profile-copy">Pendekatan berpusatkan individu, berasaskan kekuatan dan kerjasama pelbagai disiplin.</p>'}
+    education:{label:'cs-tab-education',html:'<h3>Sarjana Pendidikan dalam Bimbingan dan Kaunseling</h3><p class="profile-copy">Universiti Pendidikan Sultan Idris (UPSI) — sedang berlangsung.</p><h3>Ijazah Sarjana Muda Terapi Cara Kerja (Kepujian)</h3><p class="profile-copy">Universiti Teknologi MARA (UiTM).</p><h3>Diploma Jurupulih Perubatan (Cara Kerja)</h3><p class="profile-copy">Kolej Sains Kesihatan Bersekutu Johor Bahru.</p>'},
+    experience:{label:'cs-tab-experience',html:'<h3>Senior Occupational Therapist · Psychiatry &amp; Mental Health</h3><p class="profile-copy">Hospital Sultan Abdul Halim (HSAH) — 2019 hingga kini.</p><h3>Pengalaman terdahulu</h3><ul><li>Ketua Unit Terapi Cara Kerja — sektor kesihatan awam, Pejabat Kesihatan Daerah Bandar Baharu.</li><li>Jurupulih Cara Kerja di Hospital Kulim; pernah menjalani attachment sementara di Hospital Sultanah Bahiyah (HSB).</li><li>Sokongan psikososial dan pendidikan kesihatan mental.</li></ul>'},
+    focus:{label:'cs-tab-focus',html:'<h3>Bidang kepakaran dan minat</h3><div class="cs-profile-tags"><span>Intervensi psikososial</span><span>Intervensi tingkah laku</span><span>Regulasi emosi</span><span>Rehabilitasi psikiatri komuniti</span><span>Komuniti neurodivergen</span><span>Golongan rentan</span><span>Sokongan krisis &amp; Psychological First Aid</span><span>Advokasi kesihatan mental</span><span>Integrasi penjagaan spiritual</span></div><p class="profile-copy">Pendekatan berpusatkan individu, berasaskan kekuatan dan kerjasama pelbagai disiplin.</p>'}
   };
   let previousFocus=null;
   function selectTab(name){
