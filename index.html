@@ -16,17 +16,17 @@
 /* CS expertise additions */
 .expertise-section{padding:clamp(2.5rem,5vw,5rem) clamp(1rem,4vw,3rem);background:linear-gradient(180deg,#fbf8f1 0%,#f2f6f2 100%)}
 .expertise-inner{max-width:1180px;margin:0 auto}.expertise-heading{text-align:center;margin-bottom:2rem}.expertise-heading .eyebrow{color:#a7793d;letter-spacing:.16em;font-size:.76rem;font-weight:700}.expertise-heading h2{font-family:'Playfair Display',Georgia,serif;color:#073f43;font-size:clamp(1.8rem,4vw,2.7rem);margin:.35rem 0}.expertise-heading p{max-width:720px;margin:.5rem auto;color:#526361;line-height:1.75}.expertise-grid{display:grid;grid-template-columns:1fr;gap:1.4rem}.expertise-card{background:rgba(255,255,255,.86);border:1px solid rgba(167,121,61,.22);border-radius:22px;padding:clamp(1rem,2.5vw,1.6rem);box-shadow:0 12px 32px rgba(7,63,67,.06);overflow:hidden}.expertise-card h3{font-family:'Playfair Display',Georgia,serif;color:#073f43;font-size:clamp(1.35rem,3vw,1.8rem);margin:.2rem 0 .5rem}.expertise-card .lead{color:#536766;line-height:1.75}.expertise-card img{display:block;width:100%;height:auto;border-radius:14px;margin:1rem 0}.expertise-card .catchphrase{margin:1rem 0 0;padding:1rem 1.1rem;border-left:3px solid #b88953;background:#f5f0e7;color:#073f43;font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.45}.expertise-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}.expertise-tags span{border:1px solid rgba(7,63,67,.12);background:#f1f5f2;color:#17545a;border-radius:999px;padding:.45rem .75rem;font-size:.88rem}.neuro-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:1rem}.neuro-compare article{border-radius:14px;padding:1rem;background:#eaf4f1;border:1px solid #d2e5df}.neuro-compare article:last-child{background:#f8eee0;border-color:#ead9bd}.neuro-compare h4{margin:0 0 .5rem;color:#073f43;font-size:1rem}.neuro-compare p{margin:0;color:#526361;font-size:.92rem;line-height:1.65}.expertise-note{font-size:.82rem;color:#687673;line-height:1.65;margin-top:.9rem}.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}.reveal.is-visible{opacity:1;transform:translateY(0)}@keyframes csCardJourneyMobile{
-0%{transform:translateX(0) rotateY(0deg) rotateX(0deg) scale(.92);opacity:0}
-5%{transform:translateX(0) rotateY(0deg) rotateX(0deg) scale(1);opacity:1}
-22%{transform:translateX(0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
-34%{transform:translateX(0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
-48%{transform:translateX(0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
-57%{transform:translateX(0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
-66%{transform:translateX(0) rotateY(360deg) rotateX(78deg) scale(.84);opacity:1}
-76%{transform:translateX(12%) rotateY(360deg) rotateX(84deg) scale(.73);opacity:1}
-87%{transform:translateX(31%) rotateY(360deg) rotateX(87deg) scale(.62);opacity:1}
-96%{transform:translateX(44%) rotateY(360deg) rotateX(88deg) scale(.53);opacity:.72}
-100%{transform:translateX(46%) rotateY(360deg) rotateX(88deg) scale(.50);opacity:0}
+0%{transform:translate(0,0) rotateY(0deg) rotateX(0deg) scale(.94);opacity:0}
+5%{transform:translate(0,0) rotateY(0deg) rotateX(0deg) scale(1);opacity:1}
+23%{transform:translate(0,0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
+38%{transform:translate(0,0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
+53%{transform:translate(0,0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
+63%{transform:translate(0,0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
+72%{transform:translate(0,10%) rotateY(360deg) rotateX(76deg) scale(.92);opacity:1}
+80%{transform:translate(12%,10%) rotateY(360deg) rotateX(80deg) scale(.78);opacity:1}
+89%{transform:translate(30%,10%) rotateY(360deg) rotateX(83deg) scale(.62);opacity:1}
+96%{transform:translate(42%,10%) rotateY(360deg) rotateX(86deg) scale(.45);opacity:.85}
+100%{transform:translate(44%,10%) rotateY(360deg) rotateX(88deg) scale(.25);opacity:0}
 }
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}@media(min-width:900px){.expertise-grid{grid-template-columns:1fr 1fr}.expertise-card{height:100%}}@media(max-width:520px){.neuro-compare{grid-template-columns:1fr}.expertise-tags span{font-size:.82rem}}
  
@@ -159,34 +159,34 @@ body.cs-profile-open{overflow:hidden}
 #cs-card-loader .loader-copy strong{display:block;font-family:'Playfair Display',Georgia,serif;letter-spacing:.04em;text-transform:none;font-size:1.12rem;margin-bottom:6px}
 #cs-card-loader .loader-skip{position:absolute;bottom:24px;right:22px;border:1px solid rgba(7,63,67,.28);border-radius:999px;background:rgba(255,250,240,.7);padding:8px 13px;color:#073f43;font:inherit;font-size:.75rem;cursor:pointer}
 @keyframes csCardJourney{
-0%{transform:translateX(0) rotateY(0deg) rotateX(0deg) scale(.92);opacity:0}
-5%{transform:translateX(0) rotateY(0deg) rotateX(0deg) scale(1);opacity:1}
-22%{transform:translateX(0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
-34%{transform:translateX(0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
-48%{transform:translateX(0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
-57%{transform:translateX(0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
-66%{transform:translateX(0) rotateY(360deg) rotateX(78deg) scale(.86);opacity:1}
-76%{transform:translateX(15%) rotateY(360deg) rotateX(84deg) scale(.76);opacity:1}
-87%{transform:translateX(35%) rotateY(360deg) rotateX(87deg) scale(.66);opacity:1}
-96%{transform:translateX(49%) rotateY(360deg) rotateX(88deg) scale(.58);opacity:.72}
-100%{transform:translateX(52%) rotateY(360deg) rotateX(88deg) scale(.54);opacity:0}
+0%{transform:translate(0,0) rotateY(0deg) rotateX(0deg) scale(.94);opacity:0}
+5%{transform:translate(0,0) rotateY(0deg) rotateX(0deg) scale(1);opacity:1}
+22%{transform:translate(0,0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
+34%{transform:translate(0,0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
+48%{transform:translate(0,0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
+57%{transform:translate(0,0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
+67%{transform:translate(0,10%) rotateY(360deg) rotateX(78deg) scale(.92);opacity:1}
+76%{transform:translate(15%,10%) rotateY(360deg) rotateX(82deg) scale(.78);opacity:1}
+86%{transform:translate(34%,10%) rotateY(360deg) rotateX(84deg) scale(.62);opacity:1}
+94%{transform:translate(45%,10%) rotateY(360deg) rotateX(86deg) scale(.48);opacity:.85}
+100%{transform:translate(47%,10%) rotateY(360deg) rotateX(88deg) scale(.3);opacity:0}
 }
 @keyframes csSlotGlow{0%,100%{opacity:.25}50%{opacity:1}}
 @keyframes csCardShine{0%,20%{transform:translateX(-100%)}65%,100%{transform:translateX(100%)}}
 @keyframes csGlow{0%,100%{transform:scale(.92);opacity:.65}50%{transform:scale(1.08);opacity:1}}
 @media(max-width:520px){#cs-card-loader .loader-scene{height:300px;width:96vw}#cs-card-loader .loader-card{width:min(72vw,320px);animation-name:csCardJourneyMobile;animation-duration:4.4s}#cs-card-loader .loader-machine{width:35vw;height:155px;right:1%;padding:10px 6px}#cs-card-loader .machine-top{font-size:7px}#cs-card-loader .machine-brand b{font-size:6px}#cs-card-loader .loader-slot{height:12px;left:-10px;width:calc(100% + 20px)}#cs-card-loader .machine-label{font-size:6px;top:calc(50% + 20px)}#cs-card-loader .loader-copy{bottom:calc(50% - 185px);font-size:.62rem}#cs-card-loader .loader-copy strong{font-size:1rem}}
 @keyframes csCardJourneyMobile{
-0%{transform:translateX(-48%) rotateY(0deg) rotateX(0deg) scale(.92);opacity:0}
-5%{transform:translateX(-48%) rotateY(0deg) rotateX(0deg) scale(1);opacity:1}
-23%{transform:translateX(-48%) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
-38%{transform:translateX(-48%) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
-53%{transform:translateX(-48%) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
-63%{transform:translateX(-48%) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
-72%{transform:translateX(-34%) rotateY(360deg) rotateX(62deg) scale(.92);opacity:1}
-80%{transform:translateX(10%) rotateY(360deg) rotateX(72deg) scale(.82);opacity:1}
-89%{transform:translateX(54%) rotateY(360deg) rotateX(78deg) scale(.62);opacity:1}
-96%{transform:translateX(68%) rotateY(360deg) rotateX(84deg) scale(.42);opacity:.9}
-100%{transform:translateX(72%) rotateY(360deg) rotateX(88deg) scale(.2);opacity:0}
+0%{transform:translate(0,0) rotateY(0deg) rotateX(0deg) scale(.94);opacity:0}
+5%{transform:translate(0,0) rotateY(0deg) rotateX(0deg) scale(1);opacity:1}
+23%{transform:translate(0,0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
+38%{transform:translate(0,0) rotateY(180deg) rotateX(0deg) scale(1);opacity:1}
+53%{transform:translate(0,0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
+63%{transform:translate(0,0) rotateY(360deg) rotateX(0deg) scale(1);opacity:1}
+72%{transform:translate(0,10%) rotateY(360deg) rotateX(76deg) scale(.92);opacity:1}
+80%{transform:translate(12%,10%) rotateY(360deg) rotateX(80deg) scale(.78);opacity:1}
+89%{transform:translate(30%,10%) rotateY(360deg) rotateX(83deg) scale(.62);opacity:1}
+96%{transform:translate(42%,10%) rotateY(360deg) rotateX(86deg) scale(.45);opacity:.85}
+100%{transform:translate(44%,10%) rotateY(360deg) rotateX(88deg) scale(.25);opacity:0}
 }
 @media(prefers-reduced-motion:reduce){#cs-card-loader .loader-card,#cs-card-loader .loader-glow,#cs-card-loader .loader-slot,#cs-card-loader .loader-face:after{animation-duration:.01ms!important;animation-iteration-count:1!important}#cs-card-loader{transition:none}}
 </style>
@@ -719,12 +719,12 @@ body.cs-profile-open{overflow:hidden}
   function hideLoader(){if(hidden)return;hidden=true;loader.classList.add('is-leaving');setTimeout(()=>{if(loader.parentNode)loader.parentNode.removeChild(loader);},650);}
   if(skip)skip.addEventListener('click',hideLoader);
   // Keep the intro brief, but never hold the visitor if the page is already ready.
-  const minimum=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches?250:6200;
+  const minimum=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches?250:4500;
   const start=Date.now();
   function finishWhenReady(){const wait=Math.max(0,minimum-(Date.now()-start));setTimeout(hideLoader,wait);}
   if(document.readyState==='complete')finishWhenReady();else window.addEventListener('load',finishWhenReady,{once:true});
   // Safety fallback if a slow external resource prevents the load event.
-  setTimeout(hideLoader,5200);
+  setTimeout(hideLoader,4800);
 })();
 </script>
 <script src="script.js"></script>
